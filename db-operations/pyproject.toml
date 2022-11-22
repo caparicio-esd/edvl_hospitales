@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "aaa"
+version = "0.1.0"
+description = ""
+authors = ["caparicio-esd <caparicio@esdmadrid.es>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+alembic = "1.8.1"
+autopep8 = "2.0.0"
+Mako = "1.2.4"
+MarkupSafe = "2.1.1"
+pycodestyle = "2.9.1"
+PyMySQL = "1.0.2"
+SQLAlchemy = "1.4.44"
+tomli = "2.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

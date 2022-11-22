@@ -1,0 +1,7 @@
+{
+  "vsicons.associations.folders": [
+    { "icon": "python", "extensions": ["db-operations"], "format": "svg", "light": false }
+  ],
+  "python.linting.flake8Enabled": true,
+  "python.linting.enabled": false
+}
