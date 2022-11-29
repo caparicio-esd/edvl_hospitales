@@ -1,5 +1,5 @@
 from sqlalchemy import Column, DateTime, PrimaryKeyConstraint, SmallInteger, String
-from src.models.base import Base
+from src.sql_models.base import Base
 from sqlalchemy.dialects.mysql import VARCHAR as Varchar
 
 

@@ -5,7 +5,7 @@ from sqlalchemy.dialects.mysql import MEDIUMINT as MediumInt
 from sqlalchemy.dialects.mysql import TEXT as Text
 from sqlalchemy.dialects.mysql import LONGTEXT as LongText
 
-from src.models.base import Base
+from src.sql_models.base import Base
 
 
 class ResultadosPeticiones(Base):

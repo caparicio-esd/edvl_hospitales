@@ -7,7 +7,7 @@ Create Date: 2022-11-22 00:56:19.591579
 """
 from alembic import op
 import sqlalchemy as sa
-from src.models.types import Varchar
+from src.sql_models.types import Varchar
 
 
 # revision identifiers, used by Alembic.

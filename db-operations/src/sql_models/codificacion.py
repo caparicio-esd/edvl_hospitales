@@ -3,7 +3,7 @@ from sqlalchemy.dialects.mysql import CHAR as Char
 from sqlalchemy.dialects.mysql import VARCHAR as Varchar
 from sqlalchemy.dialects.mysql import TINYINT as TinyInt
 
-from src.models.base import Base
+from src.sql_models.base import Base
 
 
 class Codificacion(Base):

@@ -3,15 +3,16 @@ from sqlalchemy.dialects.mysql import CHAR as Char
 from sqlalchemy.dialects.mysql import VARCHAR as Varchar
 from sqlalchemy.dialects.mysql import TINYINT as TinyInt
 from sqlalchemy.dialects.mysql import TEXT as Text
+from sqlalchemy.dialects.mysql import LONGTEXT as LongText
 
-from src.models.base import Base
+from src.sql_models.base import Base
 
 
-class Formularios(Base):
+class Notas(Base):
     """
 
     """
-    __tablename__ = "formularios"
+    __tablename__ = "notas"
 
     # global fields
     nhc = Column(Varchar(8), index=True)
@@ -20,24 +21,12 @@ class Formularios(Base):
     id_proceso = Column(Varchar(12), index=True)
 
     #
-    id_formulario = Column(Varchar(12), index=True)
-    id_toma = Column(Varchar(12))
-    formulario = Column(Varchar(100))
-
-    #
-    fecha_toma = Column(DateTime)
-    cod_indicador = Column(Varchar(20))
-    indicador = Column(Varchar(255))
-    valor = Column(Text)
-   
-    # 
-    fecha_desde = Column(DateTime)
-    fecha_hasta = Column(DateTime)
-    fecha_desde_1 = Column(DateTime)
-    fecha_hasta_1 = Column(DateTime)
+    fecha_creacion = Column(DateTime)
+    description = Column(Varchar(64))
+    contenido = Column(Text)
 
 
     def __repr__(self) -> str:
-        return f"<Formularios(\
+        return f"<Notas(\
             nhc=\"{self.nhc}\", id_actoclinico=\"{self.id_actoclinico}\", id_proceso=\"{self.id_proceso}\", \
-            id_formulario=\"{self.id_formulario}\", id_toma=\"{self.id_toma}\", \...>"
+            fecha_creacion=\"{self.fecha_creacion}\", description=\"{self.description}\", \...>"
