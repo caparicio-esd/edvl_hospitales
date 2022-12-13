@@ -1,0 +1,96 @@
+[
+  {
+    "nhc": "String",
+    "patientData": {
+      "postalCode": "String",
+      "areaSalud": "String",
+      "centroReferencia": "String",
+      "city": "String",
+      "comunidadAutonoma": "String",
+      "state": "String",
+      "isForeignPatient": "Boolean",
+      "sex": "String",
+      "dateOfBirth": "Date",
+      "tipoCiudadano": {
+        "codigo": "String",
+        "id": "Int32"
+      }
+    },
+    "tipoPaciente": "String",
+    "exitus": {
+      "pendienteExitus": "Boolean",
+      "deathIndicator": "Boolean",
+      "fechaExitus": "Date",
+      "fechaPendienteExitus": "Date"
+    },
+    "procesos": [
+      {
+        "id": "String",
+        "description": "String",
+        "servicio": "String",
+        "fechaInicio": "Date",
+        "fechaFin": "Date",
+        "fusionadoAProceso": "String",
+        "procesoPadre": "String",
+        "ubicacionProcedencia": "String",
+        "restringido": "Boolean",
+        "reabierto": "Boolean",
+        "reabiertoFecha": "Date",
+        "estado": {
+          "id": "Int32",
+          "label": "String"
+        },
+        "tipo": {
+          "id": "Int32",
+          "label": "String"
+        },
+        "actosClinicos": [
+            {
+                "_object": "Object",
+                "id": "String", 
+                "estado": "String",
+                "fechaInicio": "Date", 
+                "fechaFin": "Date",
+                "ns": "String",
+                "tipo": "String", 
+                "gravedad": "Int32", 
+                "motivoIngreso": {
+                    "id": "Int32", 
+                    "label": "String"
+                },
+                "motivoAlta": {
+                    "id": "Int32", 
+                    "label": "String"
+                },
+                "motivoLlegada": {
+                    "id": "Int32", 
+                    "label": "String"
+                }, 
+                "prestacion": {
+                    "codigo": "String", 
+                    "description":"String"
+                }, 
+                "codificaciones": [
+                    {
+                        "id": "Int32", 
+                        "nivel": "String",
+                        "tipo": "String",
+                        "secuencia": "Int32", 
+                        "isPrincipal": "Boolean",
+                        "fecha": "Date",
+                        "tipoActo": "String",
+                        "servicio": "String", 
+                        "lateralidad": "String",
+                        "tipoPoa": "String",
+                    }
+                ]
+            }
+        ],
+        "formularios": [],
+        "informes": [],
+        "peticiones": [],
+        "notas": []
+      }
+    ]
+  }
+]

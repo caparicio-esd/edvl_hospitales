@@ -1,7 +1,23 @@
 {
   "vsicons.associations.folders": [
-    { "icon": "python", "extensions": ["db-operations"], "format": "svg", "light": false }
+    {
+      "icon": "python",
+      "extensions": ["db-operations"],
+      "format": "svg",
+      "light": false
+    }, 
+    {
+      "icon": "db", 
+      "extensions": ["sql-migrations"], 
+      "format": "svg"
+    },
+    {
+      "icon": "json", 
+      "extensions": ["xxx"], 
+      "format": "svg"
+    }
   ],
   "python.linting.flake8Enabled": true,
-  "python.linting.enabled": false
+  "python.linting.enabled": false,
+  "python.defaultInterpreterPath": "/Users/apabook/Desktop/edvl_hospitales/db-operations/.venv/bin/python3"
 }
