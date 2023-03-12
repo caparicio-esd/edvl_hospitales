@@ -41,7 +41,7 @@ const RangeInputData: FC<RangeInputDataProps> = memo(({ formData }) => {
           max={formData.formConfig.max}
           step={formData.formConfig.step}
           value={formData.formConfig.value}
-          name={formData.title}
+          name={formData.name}
         />
         <span className="range_label text-xs uppercase min-w-[40px]">
           {formData.toString(formData.formConfig.value)}

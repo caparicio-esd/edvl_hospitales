@@ -29,7 +29,7 @@ export const GlobalContextProvider = ({ children }) => {
   const formDataChangeHandler = ({ currentTarget }) => {
     const name = currentTarget.name;
     const formData_ = [...formData];
-    const nameIndex = formData_.findIndex((f) => f.title == name);
+    const nameIndex = formData_.findIndex((f) => f.name == name);
     formData_[nameIndex].formConfig.value = +currentTarget.value;
     _setFormData(formData_);
   };

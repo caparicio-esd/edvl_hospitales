@@ -5,6 +5,7 @@ type FormType = "range";
  */
 export interface FormRangeData {
   title: string;
+  name: string;
   tagline?: string;
   type: FormType;
   formConfig: {
@@ -69,6 +70,7 @@ const defaultColorizer = (value) => {
 export const formData: FormRangeData[] = [
   {
     title: "Sexo",
+    name: "SEX_CODED",
     type: "range",
     formConfig: {
       min: 0,
@@ -85,6 +87,7 @@ export const formData: FormRangeData[] = [
   },
   {
     title: "Edad",
+    name: "AGE_DECADE",
     tagline: "Década",
     type: "range",
     formConfig: {
@@ -102,6 +105,7 @@ export const formData: FormRangeData[] = [
   },
   {
     title: "Gravedad clínica",
+    name: "ID_GRAVEDAD",
     type: "range",
     formConfig: {
       min: 0,
@@ -118,6 +122,7 @@ export const formData: FormRangeData[] = [
   },
   {
     title: "Basófilos",
+    name: "Basófilos_ANORMALITY",
     tagline: "Gravedad",
     type: "range",
     formConfig: {
@@ -135,6 +140,7 @@ export const formData: FormRangeData[] = [
   },
   {
     title: "Basófilos %",
+    name: "Basófilos_percentage_ANORMALITY",
     tagline: "Gravedad",
     type: "range",
     formConfig: {
@@ -152,6 +158,7 @@ export const formData: FormRangeData[] = [
   },
   {
     title: "CHCM",
+    name: "CHCM_ANORMALITY",
     tagline: "Gravedad",
     type: "range",
     formConfig: {
@@ -169,6 +176,7 @@ export const formData: FormRangeData[] = [
   },
   {
     title: "Eosinófilos",
+    name: "Eosinófilos_ANORMALITY",
     tagline: "Gravedad",
     type: "range",
     formConfig: {
@@ -186,6 +194,7 @@ export const formData: FormRangeData[] = [
   },
   {
     title: "Eosinófilos %",
+    name: "Eosinófilos_percentage_ANORMALITY",
     tagline: "Gravedad",
     type: "range",
     formConfig: {
@@ -203,6 +212,7 @@ export const formData: FormRangeData[] = [
   },
   {
     title: "HCM",
+    name: "HCM_ANORMALITY",
     tagline: "Gravedad",
     type: "range",
     formConfig: {
@@ -220,6 +230,7 @@ export const formData: FormRangeData[] = [
   },
   {
     title: "Hematocrito",
+    name: "Hematocrito_ANORMALITY",
     tagline: "Gravedad",
     type: "range",
     formConfig: {
@@ -237,6 +248,7 @@ export const formData: FormRangeData[] = [
   },
   {
     title: "Hematíes",
+    name: "Hematíes_ANORMALITY",
     tagline: "Gravedad",
     type: "range",
     formConfig: {
@@ -254,6 +266,7 @@ export const formData: FormRangeData[] = [
   },
   {
     title: "Hemoglobina",
+    name: "Hemoglobina_ANORMALITY",
     tagline: "Gravedad",
     type: "range",
     formConfig: {
@@ -271,6 +284,7 @@ export const formData: FormRangeData[] = [
   },
   {
     title: "Leucocitos",
+    name: "Leucocitos_ANORMALITY",
     tagline: "Gravedad",
     type: "range",
     formConfig: {
@@ -288,6 +302,7 @@ export const formData: FormRangeData[] = [
   },
   {
     title: "Linfocitos",
+    name: "Linfocitos_ANORMALITY",
     tagline: "Gravedad",
     type: "range",
     formConfig: {
@@ -305,6 +320,7 @@ export const formData: FormRangeData[] = [
   },
   {
     title: "Linfocitos %",
+    name: "Linfocitos_percentage_ANORMALITY",
     tagline: "Gravedad",
     type: "range",
     formConfig: {
@@ -322,6 +338,7 @@ export const formData: FormRangeData[] = [
   },
   {
     title: "Monocitos",
+    name: "Monocitos_ANORMALITY",
     tagline: "Gravedad",
     type: "range",
     formConfig: {
@@ -339,6 +356,7 @@ export const formData: FormRangeData[] = [
   },
   {
     title: "Monocitos %",
+    name: "Monocitos_percentage_ANORMALITY",
     tagline: "Gravedad",
     type: "range",
     formConfig: {
@@ -356,6 +374,7 @@ export const formData: FormRangeData[] = [
   },
   {
     title: "Neutrófilos",
+    name: "Neutrófilos_ANORMALITY",
     tagline: "Gravedad",
     type: "range",
     formConfig: {
@@ -373,6 +392,7 @@ export const formData: FormRangeData[] = [
   },
   {
     title: "Neutrófilos %",
+    name: "Neutrófilos_percentage_ANORMALITY",
     tagline: "Gravedad",
     type: "range",
     formConfig: {
@@ -390,6 +410,7 @@ export const formData: FormRangeData[] = [
   },
   {
     title: "PWD",
+    name: "PWD_ANORMALITY",
     tagline: "Gravedad",
     type: "range",
     formConfig: {
@@ -407,6 +428,7 @@ export const formData: FormRangeData[] = [
   },
   {
     title: "Plaquetas",
+    name: "Plaquetas_ANORMALITY",
     tagline: "Gravedad",
     type: "range",
     formConfig: {
@@ -424,6 +446,7 @@ export const formData: FormRangeData[] = [
   },
   {
     title: "Plaquetocrito",
+    name: "Plaquetocrito_ANORMALITY",
     tagline: "Gravedad",
     type: "range",
     formConfig: {
@@ -441,6 +464,7 @@ export const formData: FormRangeData[] = [
   },
   {
     title: "RDWCV",
+    name: "RDWCV_ANORMALITY",
     tagline: "Gravedad",
     type: "range",
     formConfig: {
@@ -458,6 +482,7 @@ export const formData: FormRangeData[] = [
   },
   {
     title: "VCM",
+    name: "VCM_ANORMALITY",
     tagline: "Gravedad",
     type: "range",
     formConfig: {
@@ -475,6 +500,7 @@ export const formData: FormRangeData[] = [
   },
   {
     title: "Vol. Plaquetario M.",
+    name: "Volumen_plaquetario_medio_ANORMALITY",
     tagline: "Gravedad",
     type: "range",
     formConfig: {
@@ -495,7 +521,7 @@ export const formData: FormRangeData[] = [
 export const dataToBackendAdapter = (formData: FormRangeData[]) => {
   return formData.reduce((acc, fd) => {
     const newField = {}
-    newField[fd.title] = fd.formConfig.value
+    newField[fd.name] = fd.formConfig.value
     return {
       ...acc,
       ...newField
