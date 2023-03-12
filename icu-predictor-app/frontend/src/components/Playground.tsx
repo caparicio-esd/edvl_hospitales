@@ -2,9 +2,16 @@ import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalContext";
 import ButtonBase from "./ButtonBase";
 import RangeInputData from "./RangeInputData";
+import Spinner from "./Spinner";
 
 const Playground = () => {
-  const { formData, randomizeData, resetData } = useContext(GlobalContext);
+  const {
+    formData,
+    randomizeData,
+    resetData,
+    prediction,
+    fetchModelPrediction,
+  } = useContext(GlobalContext);
 
   return (
     <section className="playground_section">
@@ -34,11 +41,24 @@ const Playground = () => {
             ))}
           </div>
           <div className="playground_footer col-span-3 flex gap-4 items-center border-t-2 border-t-gray-300 pt-8 text-sm">
-            <ButtonBase outline onClick={randomizeData}>Randomize</ButtonBase>
+            <ButtonBase outline onClick={randomizeData}>
+              Randomize
+            </ButtonBase>
             {/* <ButtonBase outline>Randomize Panic</ButtonBase> */}
-            <ButtonBase outline onClick={resetData}>Reset</ButtonBase>
-            <ButtonBase>Predecir</ButtonBase>
-            <div className="playground_output">El paciente entra en UCI</div>
+            <ButtonBase outline onClick={resetData}>
+              Reset
+            </ButtonBase>
+            <ButtonBase onClick={fetchModelPrediction} disabled={prediction.isLoading}>Predecir</ButtonBase>
+            <div className="playground_output flex gap-2 items-center">
+              {prediction.isLoading && <Spinner />}
+              {prediction.value && (
+                <span className="prediction">
+                  {prediction.value.prediction
+                    ? "El paciente entra en UCI"
+                    : "El paciente no entra en UCI"}
+                </span>
+              )}
+            </div>
           </div>
         </div>
       </div>

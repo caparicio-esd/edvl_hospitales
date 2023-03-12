@@ -1,14 +1,19 @@
 import React, { FC, MouseEventHandler } from "react";
 import clsx from "clsx";
 
-
 type ButtonBaseProps = {
-  children: React.ReactNode, 
-  outline?: boolean, 
-  onClick?: MouseEventHandler<HTMLButtonElement>
-}
+  children: React.ReactNode;
+  outline?: boolean;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  disabled?: boolean;
+};
 
-const ButtonBase: FC<ButtonBaseProps> = ({ children, outline = false, onClick }) => {
+const ButtonBase: FC<ButtonBaseProps> = ({
+  children,
+  outline = false,
+  disabled = false,
+  onClick,
+}) => {
   const classes = clsx([
     "btn",
     "rounded-full border-2 capitalize",
@@ -18,7 +23,11 @@ const ButtonBase: FC<ButtonBaseProps> = ({ children, outline = false, onClick })
     },
   ]);
 
-  return <button onClick={onClick} className={classes}>{children}</button>;
+  return (
+    <button onClick={onClick} disabled={disabled} className={classes}>
+      {children}
+    </button>
+  );
 };
 
 export default ButtonBase;

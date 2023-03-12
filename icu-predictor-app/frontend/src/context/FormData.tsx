@@ -1,4 +1,8 @@
 type FormType = "range";
+
+/**
+ * 
+ */
 export interface FormRangeData {
   title: string;
   tagline?: string;
@@ -16,6 +20,12 @@ export interface FormRangeData {
   toString: (value: number) => string;
   colorizeFunction: (value: number) => string;
 }
+
+/**
+ * 
+ * @param value 
+ * @returns 
+ */
 const defaultFormatter = (value) => {
   let out: string = "";
   switch (value) {
@@ -31,6 +41,12 @@ const defaultFormatter = (value) => {
   }
   return out;
 };
+
+/**
+ * 
+ * @param value 
+ * @returns 
+ */
 const defaultColorizer = (value) => {
   let out: string = "";
   switch (value) {
@@ -47,6 +63,9 @@ const defaultColorizer = (value) => {
   return out;
 };
 
+/**
+ * 
+ */
 export const formData: FormRangeData[] = [
   {
     title: "Sexo",
@@ -472,3 +491,14 @@ export const formData: FormRangeData[] = [
     colorizeFunction: defaultColorizer,
   },
 ];
+
+export const dataToBackendAdapter = (formData: FormRangeData[]) => {
+  return formData.reduce((acc, fd) => {
+    const newField = {}
+    newField[fd.title] = fd.formConfig.value
+    return {
+      ...acc,
+      ...newField
+    }
+  }, {})
+}
