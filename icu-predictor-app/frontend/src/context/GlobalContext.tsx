@@ -12,11 +12,14 @@ type GlobalContextType = {
     isError: boolean;
     isLoading: boolean;
   };
+  isModalOpened: boolean;
   formData: FormRangeData[];
   formDataChangeHandler: ChangeEventHandler;
   randomizeData: () => void;
   resetData: () => void;
   fetchModelPrediction: () => Promise<void>;
+  openModal: () => void
+  closeModal: () => void
 };
 
 export const GlobalContext = React.createContext<GlobalContextType>(null!);
@@ -25,6 +28,7 @@ export const GlobalContextProvider = ({ children }) => {
   const [isLoading, _setIsLoading] = useState(false);
   const [isError, _setIsError] = useState(false);
   const [prediction, _setPrediction] = useState(null);
+  const [isModalOpened, _setModalOpened] = useState(false);
 
   const formDataChangeHandler = ({ currentTarget }) => {
     const name = currentTarget.name;
@@ -56,6 +60,7 @@ export const GlobalContextProvider = ({ children }) => {
     _setIsError(false);
     _setIsLoading(true);
     _setPrediction(null);
+    openModal()
 
     const data = await fetch("http://127.0.0.1:5000", {
       method: "POST",
@@ -83,6 +88,13 @@ export const GlobalContextProvider = ({ children }) => {
     _setPrediction(null);
   };
 
+  const openModal = () => {
+    _setModalOpened(true);
+  };
+  const closeModal = () => {
+    _setModalOpened(false);
+  };
+
   const value = {
     prediction: {
       value: prediction,
@@ -90,10 +102,13 @@ export const GlobalContextProvider = ({ children }) => {
       isLoading,
     },
     formData,
+    isModalOpened,
     formDataChangeHandler,
     randomizeData,
     resetData,
     fetchModelPrediction,
+    openModal,
+    closeModal
   };
   return (
     <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>

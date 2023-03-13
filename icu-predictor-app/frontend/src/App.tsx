@@ -1,5 +1,6 @@
 import React from 'react'
 import HeaderBase from './components/HeaderBase'
+import ModalWindow from './components/ModalWindow'
 import Playground from './components/Playground'
 import Presentation from './components/Presentation'
 
@@ -9,6 +10,7 @@ const App = () => {
       <HeaderBase />
       <Presentation />
       <Playground />
+      <ModalWindow />
     </div>
   )
 }
