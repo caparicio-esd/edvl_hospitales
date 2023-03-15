@@ -3,7 +3,10 @@ from flask_cors import CORS
 import time
 import random
 
-app = Flask(__name__)
+app = Flask(__name__, 
+    static_url_path='', 
+    static_folder='web/static/dist'
+)
 CORS(app)
 cors = CORS(app, resource={
     r"/*":{
@@ -11,7 +14,11 @@ cors = CORS(app, resource={
     }
 })
 
-@app.route("/", methods=["POST"])
+@app.route("/", methods=["GET"])
+def render_app():
+    return app.send_static_file("index.html")
+
+@app.route("/api/edvl_model", methods=["POST"])
 def predict_icu():
     request_data = request.json
 

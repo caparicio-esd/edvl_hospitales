@@ -62,7 +62,7 @@ export const GlobalContextProvider = ({ children }) => {
     _setPrediction(null);
     openModal()
 
-    const data = await fetch("http://127.0.0.1:5000", {
+    const data = await fetch("/api/edvl_model", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
