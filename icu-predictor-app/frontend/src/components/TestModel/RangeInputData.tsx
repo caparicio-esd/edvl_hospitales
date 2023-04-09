@@ -1,13 +1,13 @@
 import clsx from "clsx";
 import React, { FC, memo, useContext } from "react";
 import { FormRangeData } from "../../context/FormData";
-import { GlobalContext } from "../../context/GlobalContext";
+import { TestModelContext } from "./TestModelContext";
 
 type RangeInputDataProps = {
   formData: FormRangeData;
 };
 const RangeInputData: FC<RangeInputDataProps> = memo(({ formData }) => {
-  const { formDataChangeHandler } = useContext(GlobalContext);
+  const { formDataChangeHandler } = useContext(TestModelContext);
   
   //styles
   const rangeInputDataClasses = clsx(

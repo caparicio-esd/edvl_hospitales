@@ -3,10 +3,10 @@ import {
   dataToBackendAdapter,
   formData as formDataOriginal,
   FormRangeData,
-} from "./FormData";
+} from "../../context/FormData";
 import { faker } from "@faker-js/faker";
 
-type GlobalContextType = {
+type TestModelContextType = {
   prediction: {
     value: any;
     isError: boolean;
@@ -22,8 +22,8 @@ type GlobalContextType = {
   closeModal: () => void
 };
 
-export const GlobalContext = React.createContext<GlobalContextType>(null!);
-export const GlobalContextProvider = ({ children }) => {
+export const TestModelContext = React.createContext<TestModelContextType>(null!);
+export const TestModelContextProvider = ({ children }) => {
   const [formData, _setFormData] = useState<FormRangeData[]>(formDataOriginal);
   const [isLoading, _setIsLoading] = useState(false);
   const [isError, _setIsError] = useState(false);
@@ -112,6 +112,6 @@ export const GlobalContextProvider = ({ children }) => {
     closeModal
   };
   return (
-    <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>
+    <TestModelContext.Provider value={value}>{children}</TestModelContext.Provider>
   );
 };

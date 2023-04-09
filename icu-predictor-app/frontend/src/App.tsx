@@ -13,7 +13,6 @@ const App = () => {
       <TabBlockContextProvider>
         <TabBlock />
       </TabBlockContextProvider>
-      <ModalWindow />
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import React, { useContext, useMemo } from "react";
-import { GlobalContext } from "../../context/GlobalContext";
+import { TestModelContext } from "./TestModelContext";
 import Spinner from "../Global/Spinner";
 
 const ModalWindow = () => {
-  const { prediction, isModalOpened, closeModal } = useContext(GlobalContext);
+  const { prediction, isModalOpened, closeModal } = useContext(TestModelContext);
   const circleLength = 240.2;
   const circleLengthOffset = useMemo(() => {
     return circleLength * (1 - prediction.value?.predict_proba) || 0;

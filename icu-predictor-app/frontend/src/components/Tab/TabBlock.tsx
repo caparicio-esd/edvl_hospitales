@@ -6,6 +6,7 @@ import TabBody from "./TabBody";
 import TabElement from "./TabElement";
 import TabHeader from "./TabHeader";
 import { TabBlockContext } from "./../../context/TabBlockContext";
+import { TestModelContextProvider } from "../TestModel/TestModelContext";
 
 const TabBlock = () => {
   const { activeIndex } = useContext(TabBlockContext);
@@ -22,7 +23,9 @@ const TabBlock = () => {
       <TabBody>
         {activeIndex == 0 && (
           <TabElement index={0}>
-            <TestModel />
+            <TestModelContextProvider>
+              <TestModel />
+            </TestModelContextProvider>
           </TabElement>
         )}
         {activeIndex == 1 && (
