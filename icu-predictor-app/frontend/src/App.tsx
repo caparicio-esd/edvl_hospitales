@@ -1,18 +1,21 @@
-import React from 'react'
-import HeaderBase from './components/HeaderBase'
-import ModalWindow from './components/ModalWindow'
-import Playground from './components/Playground'
-import Presentation from './components/Presentation'
+import React from "react";
+import HeaderBase from "./components/Global/HeaderBase";
+import ModalWindow from "./components/TestModel/ModalWindow";
+import Presentation from "./components/Global/Presentation";
+import TabBlock from "./components/Tab/TabBlock";
+import { TabBlockContextProvider } from "./context/TabBlockContext";
 
 const App = () => {
   return (
     <div>
       <HeaderBase />
       <Presentation />
-      <Playground />
+      <TabBlockContextProvider>
+        <TabBlock />
+      </TabBlockContextProvider>
       <ModalWindow />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

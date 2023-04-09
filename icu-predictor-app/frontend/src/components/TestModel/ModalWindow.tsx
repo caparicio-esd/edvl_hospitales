@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { useContext, useMemo } from "react";
-import { GlobalContext } from "../context/GlobalContext";
-import Spinner from "./Spinner";
+import { GlobalContext } from "../../context/GlobalContext";
+import Spinner from "../Global/Spinner";
 
 const ModalWindow = () => {
   const { prediction, isModalOpened, closeModal } = useContext(GlobalContext);

@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { FC, memo, useContext } from "react";
-import { FormRangeData } from "../context/FormData";
-import { GlobalContext } from "../context/GlobalContext";
+import { FormRangeData } from "../../context/FormData";
+import { GlobalContext } from "../../context/GlobalContext";
 
 type RangeInputDataProps = {
   formData: FormRangeData;
