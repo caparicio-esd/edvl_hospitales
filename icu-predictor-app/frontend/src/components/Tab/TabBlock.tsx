@@ -5,8 +5,9 @@ import Tab from "./Tab";
 import TabBody from "./TabBody";
 import TabElement from "./TabElement";
 import TabHeader from "./TabHeader";
-import { TabBlockContext } from "./../../context/TabBlockContext";
+import { TabBlockContext } from "./TabBlockContext";
 import { TestModelContextProvider } from "../TestModel/TestModelContext";
+import { OpenIcoContextProvider } from "../OpenIcu/OpenIcuContext";
 
 const TabBlock = () => {
   const { activeIndex } = useContext(TabBlockContext);
@@ -30,7 +31,9 @@ const TabBlock = () => {
         )}
         {activeIndex == 1 && (
           <TabElement index={1}>
-            <OpenIcu />
+            <OpenIcoContextProvider>
+              <OpenIcu />
+            </OpenIcoContextProvider>
           </TabElement>
         )}
       </TabBody>

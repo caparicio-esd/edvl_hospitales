@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 const OpenIcuIncomingEvent = () => {
   return (
@@ -40,4 +40,4 @@ const OpenIcuIncomingEvent = () => {
   );
 };
 
-export default OpenIcuIncomingEvent;
+export default memo(OpenIcuIncomingEvent);

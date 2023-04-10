@@ -3,7 +3,7 @@ import HeaderBase from "./components/Global/HeaderBase";
 import ModalWindow from "./components/TestModel/ModalWindow";
 import Presentation from "./components/Global/Presentation";
 import TabBlock from "./components/Tab/TabBlock";
-import { TabBlockContextProvider } from "./context/TabBlockContext";
+import { TabBlockContextProvider } from "./components/Tab/TabBlockContext";
 
 const App = () => {
   return (

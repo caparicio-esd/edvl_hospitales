@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { FC, useContext } from "react";
-import { TabBlockContext } from "../../context/TabBlockContext";
+import { TabBlockContext } from "./TabBlockContext";
 
 type TabProps = {
   children: React.ReactNode;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import OpenIcuCardDataViz from "./OpenIcuCardDataViz";
 
 const OpenIcuCard = () => {
@@ -27,4 +27,4 @@ const OpenIcuCard = () => {
   );
 };
 
-export default OpenIcuCard;
+export default memo(OpenIcuCard);

@@ -8,10 +8,10 @@ import ModalWindow from "./ModalWindow";
 const TestModel = () => {
   const {
     formData,
-    randomizeData,
+    testModelRandomizeData,
     resetData,
     prediction,
-    fetchModelPrediction,
+    testModelFetchModelPrediction,
   } = useContext(TestModelContext!);
 
   return (
@@ -40,14 +40,14 @@ const TestModel = () => {
               ))}
             </div>
             <div className="playground_footer col-span-3 flex gap-4 items-center border-t-2 border-t-gray-300 pt-8 text-sm">
-              <ButtonBase outline onClick={randomizeData}>
+              <ButtonBase outline onClick={testModelRandomizeData}>
                 Randomize
               </ButtonBase>
               <ButtonBase outline onClick={resetData}>
                 Reset
               </ButtonBase>
               <ButtonBase
-                onClick={fetchModelPrediction}
+                onClick={testModelFetchModelPrediction}
                 disabled={prediction.isLoading}
               >
                 Predecir

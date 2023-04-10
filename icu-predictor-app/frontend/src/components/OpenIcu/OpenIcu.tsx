@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import ButtonBase from "./../Global/ButtonBase";
 import OpenIcuCard from "./OpenIcuCard";
 import OpenIcuIncomingEvent from "./OpenIcuIncomingEvent";
 import Spinner from "../Global/Spinner";
+import { OpenIcuContext } from "./OpenIcuContext";
 
 const OpenIcu = () => {
+  const { playing, initTimer, clearTimer } = useContext(OpenIcuContext);
   const bla = true;
+
+  const playPauseHandler = () => {
+    if (playing) {
+      clearTimer();
+    } else {
+      initTimer();
+    }
+  };
+
   return (
     <div className="playground_section border ">
       <div className="playground bg-slate-100 py-16 min-h-[700px] border ">
@@ -29,10 +40,16 @@ const OpenIcu = () => {
           </div>
           <div className="icu_info flex flex-col gap-12">
             <div className="icu_ctas flex gap-2">
-              <ButtonBase>
+              <ButtonBase onClick={playPauseHandler}>
                 <span className="flex items-center gap-2">
-                  <span>Play</span>
-                  <Spinner className="fill-white" />
+                  {playing ? (
+                    <>
+                      <span>Pause</span>
+                      <Spinner className="fill-white" />
+                    </>
+                  ) : (
+                    <span>Play</span>
+                  )}
                 </span>
               </ButtonBase>
               <ButtonBase outline disabled>

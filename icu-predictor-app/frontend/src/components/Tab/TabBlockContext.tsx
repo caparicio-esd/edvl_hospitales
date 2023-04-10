@@ -8,7 +8,7 @@ type TabBlockContextType = {
 export const TabBlockContext = React.createContext<TabBlockContextType>(null!);
 
 export const TabBlockContextProvider = ({ children }) => {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [activeIndex, setActiveIndex] = useState<number>(1);
   const value = {
     activeIndex,
     setActiveIndex

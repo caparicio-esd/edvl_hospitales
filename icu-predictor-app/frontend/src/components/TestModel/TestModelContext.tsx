@@ -1,10 +1,11 @@
-import React, { ChangeEventHandler, useState } from "react";
+import React, { ChangeEventHandler, useContext, useState } from "react";
 import {
   dataToBackendAdapter,
   formData as formDataOriginal,
   FormRangeData,
 } from "../../context/FormData";
 import { faker } from "@faker-js/faker";
+import { GlobalContext } from "../../context/GlobalContext";
 
 type TestModelContextType = {
   prediction: {
@@ -15,20 +16,23 @@ type TestModelContextType = {
   isModalOpened: boolean;
   formData: FormRangeData[];
   formDataChangeHandler: ChangeEventHandler;
-  randomizeData: () => void;
+  testModelRandomizeData: () => void;
   resetData: () => void;
-  fetchModelPrediction: () => Promise<void>;
-  openModal: () => void
-  closeModal: () => void
+  testModelFetchModelPrediction: () => Promise<void>;
+  openModal: () => void;
+  closeModal: () => void;
 };
 
-export const TestModelContext = React.createContext<TestModelContextType>(null!);
+export const TestModelContext = React.createContext<TestModelContextType>(
+  null!
+);
 export const TestModelContextProvider = ({ children }) => {
   const [formData, _setFormData] = useState<FormRangeData[]>(formDataOriginal);
   const [isLoading, _setIsLoading] = useState(false);
   const [isError, _setIsError] = useState(false);
   const [prediction, _setPrediction] = useState(null);
   const [isModalOpened, _setModalOpened] = useState(false);
+  const { randomizeData, fetchModelPrediction } = useContext(GlobalContext);
 
   const formDataChangeHandler = ({ currentTarget }) => {
     const name = currentTarget.name;
@@ -38,45 +42,17 @@ export const TestModelContextProvider = ({ children }) => {
     _setFormData(formData_);
   };
 
-  const randomizeData = () => {
-    const formData_ = formData.map((formDataItem) => {
-      const value = faker.datatype.number({
-        min: formDataItem.formConfig.min,
-        max: formDataItem.formConfig.max,
-        precision: formDataItem.formConfig.step,
-      });
-      return {
-        ...formDataItem,
-        formConfig: {
-          ...formDataItem.formConfig,
-          value,
-        },
-      };
-    });
+  const testModelRandomizeData = () => {
+    const formData_ = randomizeData();
     _setFormData(formData_);
   };
 
-  const fetchModelPrediction = async () => {
+  const testModelFetchModelPrediction = async () => {
     _setIsError(false);
     _setIsLoading(true);
     _setPrediction(null);
-    openModal()
-
-    // TODO: must be differentiated based on env production or dev
-    const data = await fetch("http://localhost:5000/api/edvl_model", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(dataToBackendAdapter(formData)),
-    }).then(
-      (d) => d.json(),
-      (err) => {
-        _setIsLoading(false);
-        _setIsError(true);
-        console.error(err);
-      }
-    );
+    openModal();
+    const data = await fetchModelPrediction(formData)
     console.log(data);
     _setPrediction(data!);
     _setIsLoading(false);
@@ -105,13 +81,15 @@ export const TestModelContextProvider = ({ children }) => {
     formData,
     isModalOpened,
     formDataChangeHandler,
-    randomizeData,
+    testModelRandomizeData,
     resetData,
-    fetchModelPrediction,
+    testModelFetchModelPrediction,
     openModal,
-    closeModal
+    closeModal,
   };
   return (
-    <TestModelContext.Provider value={value}>{children}</TestModelContext.Provider>
+    <TestModelContext.Provider value={value}>
+      {children}
+    </TestModelContext.Provider>
   );
 };
